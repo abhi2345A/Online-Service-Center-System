@@ -1,4 +1,4 @@
-# Restart
+# Online Service Center System
 
 DBMS mini-project 1st Sem. It's a fictious service center where users can keep track of their gadgets and miscellaneous repair requests/complaints. Database used is MySql. A quick demo of this project can be seen [here](https://restartx.herokuapp.com/center/). If you'd like to try it locally on your machine follow the steps below:
 
