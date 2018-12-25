@@ -1,0 +1,95 @@
+{% extends 'center/base.html' %}
+<!-- {% load static %} -->
+
+{% block title %}
+    Bill
+{% endblock %}
+
+{% block content %}
+  <br>
+  <div class="container">
+      <br>
+      {% if user.is_authenticated %}
+        <h3>Your {{ object.brand }} registered products</h3>
+        <br>
+        <article class="media content-section">
+              <!-- <img class="rounded circle article-img" src="{{ object.customer.profile.image.url }}"> -->
+              <div class="media-body">
+                <div class="article-metadata">
+                  <h3>User : <a class="mr-2" href="{% url 'profile' %}">{{ request.user }}</a></h3>
+                  <small class="text-muted">{{ requst.purchase_date|date:"F d, Y" }}</small>
+
+                </div>
+                <p class="article-content"><strong>{{ object.brand }} - {{ object.product_type }}</strong>
+                </p>
+                <p>
+            <p></p>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Brand</th>
+                    <th>Model Number</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for obj in product %}
+                  {% if obj.customer == request.user%}
+                  <tr>
+                    <td>{{ obj.brand }}</td>
+                    <td>{{ obj.model_no }}</td>
+                    <td>{{ obj.price }}</td>
+                  </tr>
+                  {% endif %}
+                  {% endfor %}
+                  <tr>
+                    <td>Total</td>
+                    <td></td>
+                      <!-- <td>{{ total_price.price__sum }}</td> -->
+                      <td>{{ total_pricex }}</td>
+                  </tr>
+
+                   <tr>
+                    <td>
+                      <h4>You have registered products worth Rs <b>{{ total_pricex }}</b> on our site.</h4>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h3>Other miscellaneous details : </h3>
+              <br>
+             <!--  <p>
+                <strong>Avergage products price : </strong> - {{ avg_price.price__avg }}
+              </p> -->
+              <p>
+                <!-- <strong>Maximum products price : </strong> - {{ max_price.price__max }} - {{ max_prod }} -->
+                <strong>Maximum products price : </strong> - {{ max_price_prod }} - {{ max_prod }}
+              </p>
+              <p>
+                <!-- <strong>Minimum products price : </strong> - {{ min_price.price__min }} - {{ min_prod }} -->
+                <strong>Minimum products price : </strong> - {{ min_price_prod }} - {{ min_prod }}
+              </p>
+
+                  <!-- <ul>
+                    <li>Device Model : {{ object.device_model }}</li>
+                    <li>Model Number : {{ object.model_no }}</li>
+                    <li>Purchase Date : {{ object.purchase_date }}</li>
+                    <li>Product Retailer : {{ object.product_retailer }}</li>
+                    <li>Purchase Location : {{ object.purchase_location }}</li>
+                  </ul>
+                </p>
+                 {% if object.customer == user %}
+                    <div>
+                      <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'product-update' object.id %}">Update</a>
+                      <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'product-delete' object.id %}">Delete</a>
+                    </div>
+                  {% endif %} -->
+              </div>
+        </article>
+      {% endif %}
+  </div>
+
+
+{% endblock %}
+

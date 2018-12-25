@@ -1,0 +1,351 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %} Base {% endblock %}</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'center/faq.css' %}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <style type="text/css">
+        .my_restart{
+            height: 380px;
+            width: 750px;
+            margin-left: 20%;
+        }
+
+        .my_restart2{
+            height: 380px;
+            width: 750px;
+        }
+
+        .account-img {
+            height: 125px;
+            width: 125px;
+            margin-right: 20px;
+            margin-bottom: 16px;
+        }
+
+        .content-section {
+            background: #ffffff;
+            padding: 10px 20px;
+            border: 1px solid #dddddd;
+            border-radius: 3px;
+            margin-bottom: 20px;
+        }
+
+        .account-heading {
+            font-size: 2.5rem;
+        }
+
+        .rounded-circle2{
+          border-radius: 100px;
+          height: 70%;
+          width: 70%;
+        }
+
+        .article-content {
+          white-space: pre-line;
+        }
+
+        .article-img {
+          height: 65px;
+          width: 65px;
+          margin-right: 16px;
+        }
+
+        .harold2{
+            margin-top: 10%;
+            padding-left: 10%;
+        }
+
+        .repair_image{
+            margin-top: 30%;
+            padding-left: 10%;
+        }
+
+        .comp_image{
+            margin-top: 40%;
+            padding-left: 25%;
+            height: 40%;
+            width: 120%;
+        }
+
+        .com_class{
+            padding-bottom: 3%;
+        }
+
+        @import url(https://fonts.googleapis.com/css?family=Raleway);
+
+        body {
+          padding-top: 54px;
+        }
+
+        @import url(https://fonts.googleapis.com/css?family=Raleway);
+
+        /*body {
+            color: #333;
+            background: #fcfcfc;
+            font-family: 'Raleway', sans-serif;
+            overflow-x: hidden;
+          }*/
+
+        .faq-header{
+            margin-top: 20px;
+            font-size: 42px;
+            border-bottom: 1px dotted #ccc;
+            padding: 24px;
+        }
+
+        .faq-content {
+          margin: 0 auto;
+        }
+
+        .faq-question {
+          padding: 20px 0;
+          border-bottom: 1px dotted #ccc;
+        }
+
+        .panel-title {
+          font-size: 24px;
+          width: 100%;
+          position: relative;
+          margin: 0;
+          padding: 10px 10px 0 48px;
+          display: block;
+          cursor: pointer;
+        }
+
+        .panel-content {
+          font-size: 20px;
+          padding: 0px 14px;
+          margin: 0 40px;
+          height: 0;
+          overflow: hidden;
+          z-index: -1;
+          position: relative;
+          opacity: 0;
+          -webkit-transition: .4s ease;
+          -moz-transition: .4s ease;
+          -o-transition: .4s ease;
+          transition: .4s ease;
+        }
+
+        .panel:checked ~ .panel-content{
+          height: auto;
+          opacity: 1;
+          padding: 14px;
+        }
+
+        .plus {
+          position: absolute;
+          margin-left: 20px;
+          margin-top: 4px;
+          z-index: 5;
+          font-size: 42px;
+          line-height: 100%;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          -o-user-select: none;
+          user-select: none;
+          -webkit-transition: .2s ease;
+          -moz-transition: .2s ease;
+          -o-transition: .2s ease;
+          transition: .2s ease;
+        }
+
+        .panel:checked ~ .plus {
+          -webkit-transform: rotate(45deg);
+          -moz-transform: rotate(45deg);
+          -o-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+
+        .panel {
+          display: none;
+        }
+
+
+    </style>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Restart</a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'home' %}">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">About</a>
+            </li>
+           <!--  <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li> -->
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Services
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'product-register' %}">Register Product</a>
+                <a class="dropdown-item" href="{% url 'product-repair' %}">Repair Product</a>
+                <a class="dropdown-item" href="{% url 'product-complaint' %}">Register Complaint</a>
+                <a class="dropdown-item" href="{% url 'report-check' %}">Report Checking</a>
+                <a class="dropdown-item" href="{% url 'bill-info' %}">Bill Info</a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'faq' %}">FAQs</a>
+            </li>
+        </ul>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'profile' %}" >Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'register' %}">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Login</a>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  {% if messages %}
+      {% for msg in messages %}
+        <div class="alert alert-{{ msg.tags }}">
+          {{ msg }}
+        </div>
+      {% endfor %}
+    {% endif %} -
+
+    {% block content %}
+      <h2>BASE</h2>
+    {% endblock %}
+
+    <br>
+
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white" >Copyright &copy; Restart 2018</p>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      $( function() {
+          $( "#id_purchase_date" ).datepicker({minDate: "-24M", maxDate: 0} );
+       } );
+    </script>
+
+    <script type="text/javascript">
+     function myFun(){
+      console.log('ENTER');
+        var res = 0;
+        var x = document.getElementById("id_product_type");
+        var op = x.options[x.selectedIndex].value;
+        var y = document.getElementById("id_option_field");
+        var op2 = y.options[y.selectedIndex].value;
+
+        console.log(op)
+        console.log(op2)
+
+        function getR(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        if (op == "Smartphone"){
+            if (op2 == "Hardware"){
+                res = getR(400, 1200);
+            }
+            else if (op2 == "Software"){
+                res = getR(800, 1500);
+            }
+            else {
+                res = getR(800, 2000);
+            }
+        }
+        else if(op == "Desktop/Laptop"){
+            if (op2 == "Hardware"){
+                res = getR(1300, 2700);
+            }
+            else if (op2 == "Software"){
+                res = getR(2300, 4000);
+            }
+            else {
+                res = getR(800, 2000);
+            }
+        }
+        else if(op == "Refrigerator"){
+            if (op2 == "Hardware"){
+                res = getR(3000, 3800);
+            }
+            else if (op2 == "Software"){
+                res = getR(3400, 5000);
+            }
+            else {
+                res = getR(3500, 6000);
+            }
+        }
+        else if(op == "Television"){
+            if (op2 == "Hardware"){
+                res = getR(1700, 2100);
+            }
+            else if (op2 == "Software"){
+                res = getR(1200, 3300);
+            }
+            else {
+                res = getR(2000, 4100);
+            }
+        }
+        else{
+            if (op2 == "Hardware"){
+                res = getR(200, 1000);
+            }
+            else if (op2 == "Software"){
+                res = getR(600, 1500);
+            }
+            else {
+                res = getR(400, 1300);
+            }
+        }
+
+        // document.getElementById("abc").innerHTML = 'abc';
+        window.onload = function what(){
+          document.getElementById('abc').innerHTML = 'abc';
+        };
+      }
+    </script>
+
+  </body>
+</html>

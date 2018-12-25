@@ -1,0 +1,33 @@
+{% extends 'center/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Product|Complaint
+{% endblock %}
+
+{% block content %}
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="content-section col-sm-6">
+                <h2>Product Complaint</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    <br>
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">Pleas enter the details</legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-info" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-sm-6">
+                <img src="https://i.imgur.com/DlOJ5Ba.jpg" class="comp_image">
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

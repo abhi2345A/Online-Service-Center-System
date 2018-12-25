@@ -1,0 +1,94 @@
+{% extends 'center/base.html' %}
+
+
+{% block title %}
+    Status
+{% endblock %}
+
+{% block content %}
+  <br>
+
+  <div class="container com_class">
+      <h2>Your Registered Products : </h2>
+      <br>
+      {% if key1 and request.user == current_customer %}
+        {% for product in key1 %}
+          {% if request.user == product.customer %}
+            <article class="media content-section">
+                  <img class="rounded circle article-img" src="{{ product.customer.profile.image.url }}">
+                  <div class="media-body">
+                    <div class="article-metadata">
+                      <a class="mr-2" href="{% url 'profile' %}">{{ product.customer }}</a>
+                      <small class="text-muted">{{ product.date_posted|date:"F d, Y - H : i" }}</small>
+                    </div>
+                    <p class="article-content"><a href="{% url 'product-detail' product.id %}">{{ product.brand }}</a> - {{ product.product_type }}</p>
+                  </div>
+            </article>
+          {% endif %}
+      {% endfor %}
+    {% else %}
+         <strong>Nothing to show here. You don't have any registerd products! Click <a href="{% url 'product-register' %}">here</a> if you wish to register your product.</strong>
+    {% endif %}
+
+  </div>
+
+  <div class="container com_class">
+    <div class="row">
+
+      <div class="col-sm-6">
+        <h2>Your Repair Requests : </h2>
+        <br>
+        {% if key2 and request.user == current_customer2 %}
+            {% for pro in key2 %}
+              {% if request.user == pro.customer %}
+                <article class="media content-section">
+                      <img class="rounded circle article-img" src="{{ pro.customer.profile.image.url }}">
+                      <div class="media-body">
+                        <div class="article-metadata">
+                          <a class="mr-2" href="{% url 'profile' %}">{{ pro.customer }}</a>
+                        </div>
+                        <p class="article-content"><a href="{% url 'repair-detail' pro.id %}">{{ pro.brand }}</a> - {{ pro.product_type }}</p>
+                      </div>
+                </article>
+              {% endif %}
+          {% endfor %}
+        {% else %}
+            <strong>You don't have any repair requests! Click <a href="{% url 'product-repair' %}">here</a> if you wish to repair your product.</strong>
+        {% endif %}
+
+      </div>
+
+      <div class="col-sm-6">
+        <h2>Your Past complaints : </h2>
+        <br>
+        {% if key3 and request.user == current_customer3 %}
+          {% for pro in key3 %}
+            {% if request.user == pro.customer %}
+              <article class="media content-section">
+                    <img class="rounded circle article-img" src="{{ pro.customer.profile.image.url }}">
+                    <div class="media-body">
+                      <div class="article-metadata">
+                        <a class="mr-2" href="{% url 'profile' %}">{{ pro.customer }}</a>
+                        <small class="text-muted">{{ pro.purchase_date|date:"F d, Y" }}</small>
+                      </div>
+                      <p class="article-content"><a href="{% url 'complaint-detail' pro.id %}">{{ pro.brand }}</a> - {{ pro.product_type }}</p>
+
+                    </div>
+              </article>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          <strong>You don't have any complaints! Click <a href="{% url 'product-complaint' %}">here</a> if you wish to add any. </strong>
+        {% endif %}
+
+      </div>
+
+      <div class="col-sm-6">
+
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}
+

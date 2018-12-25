@@ -1,0 +1,103 @@
+{% extends 'center/base.html' %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+      {% if user.is_authenticated %}
+      <div class="container">
+
+        <!-- Heading Row -->
+        <div class="row my-4">
+          <div class="col-lg-8">
+            <img class="img-fluid rounded my_restart2" src="https://i.imgur.com/UqfhV7t.png" alt="">
+            <!-- <img class="my_logo" src="https://i.imgur.com/YSHtGmJ.jpg" alt=""> -->
+          </div>
+          <!-- /.col-lg-8 -->
+          <div class="col-lg-4">
+            <h1>RESTART</h1>
+            <h4>For All things That You need to repair and review.</h4>
+            <p class="para2">
+              We at RESTART promise to provide you the best solutions, electronic devices repair, reliable repair devices with all the possible customer support service.
+            </p>
+            <a class="btn btn-primary btn-lg" href="#">Call to Action!</a>
+          </div>
+          <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+
+        <div class="card text-white bg-secondary my-4 text-center">
+          <div class="card-body">
+            <p class="text-white m-0">Quality Is Our Business Plan and for us Customer Support Is Not A Service, It’s an Attitude.</p>
+          </div>
+        </div>
+
+        <!-- Content Row -->
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h2 class="card-title">Electronic Products Repairing</h2>
+                <p class="card-text">Electrical and electronics installers and repairers typically Discuss problems and requirements with customers. Inspect and test equipment. Reproduce, isolate, and diagnose problems. Disassemble equipment as necessary to access problematic components. Clean, repair, and replace components. Reassemble and test equipment after repairs. Keep records of repairs, tests, parts, and labor hours.</p>
+              </div>
+              <div class="card-footer">
+                <a href="{% url 'product-register' %}" class="btn btn-primary">Request now!</a>
+              </div>
+            </div>
+          </div>
+          <!-- /.col-md-4 -->
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h2 class="card-title">Register Your Product</h2>
+                <p class="card-text">Product registry to ensure product configuration database which keeps track of features and components of products and accomplishes tasks such as associating file name extensions with applications. Proper use of product IDs and versions are essential to the operation of the registry in the future for example, the use of the Find Component in Registry action.</p>
+              </div>
+              <div class="card-footer">
+                <a href="{% url 'product-repair' %}" class="btn btn-primary">Register Now!</a>
+              </div>
+            </div>
+          </div>
+          <!-- /.col-md-4 -->
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h2 class="card-title">Register Your Complaints</h2>
+                <p class="card-text">Report your complaints about service, product repair exchange equipments, product delivery or else Here so that we can try to take actions as soon as possible.</p>
+              </div>
+              <div class="card-footer">
+                <a href="{% url 'product-complaint' %}" class="btn btn-primary">Click here.</a>
+              </div>
+            </div>
+          </div>
+          <!-- /.col-md-4 -->
+
+        </div>
+        <!-- /.row -->
+
+      </div>
+    <!-- /.container -->
+      {% else %}
+        <p>
+        <br>
+          <img class="img-fluid rounded my_restart" src="https://i.imgur.com/GDlU995.png" alt="">
+        </p>
+
+        <div class="content-section">
+          <p align="center">
+            <strong>
+              We at RESTART promise to provide you the best solutions, electronic devices repair, reliable repair devices with all the possible customer support service.
+            </strong>
+          </p>
+
+          <p align="center">
+              Please <a href="{% url 'register' %}">register</a> or <a href="{% url 'login' %}">login</a> to get the best out of our services!
+          </p>
+        </div>
+
+        {% endif %}
+
+      </div>
+
+{% endblock %}
+

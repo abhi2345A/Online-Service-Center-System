@@ -1,0 +1,35 @@
+{% extends 'center/base.html' %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+{% block title %}
+    Product|Register
+{% endblock %}
+
+{% block content %}
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="content-section col-sm-6">
+            <div>
+                <h2>Product Registration</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    <br>
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">Register your product!</legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-info" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+         <div class="col-sm-6 harold2">
+            <img src="https://i.imgur.com/AuNO6y3.png">
+        </div>
+        </div>
+
+    </div>
+{% endblock %}
